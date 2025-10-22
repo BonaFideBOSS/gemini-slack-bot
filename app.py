@@ -44,12 +44,11 @@ def handle_event(data):
     """Process Slack event data."""
 
     event = data["event"]
-    print(f'Received Event Text {event["text"]}')
+    print(f'Received Event Text: {event["text"]}')
 
     # Check if the event is a message without a subtype (excluding bot messages, etc.)
 
     if "text" in event and event["type"] == "message" and event.get("subtype") is None:
-        print(f'Received Event Text: {event["text"]}')
         # Ignore messages from the bot itself
         if event.get("user") == BOT_USER_ID:
             return
