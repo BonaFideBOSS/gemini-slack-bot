@@ -27,6 +27,12 @@ BOT_USER_ID = os.getenv('BOT_USER_ID')
 app = Flask(__name__)
 
 
+@app.route('/')
+def health_check():
+    """Health check endpoint."""
+    return "Gemini Slack Bot is running!"
+
+
 def handle_event_async(data):
     """Handle Slack event asynchronously to avoid blocking."""
 
